@@ -31,12 +31,13 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
       <div className="container-wide mx-auto flex items-center justify-between h-20 md:h-24 px-4 sm:px-6 lg:px-8">
+
         {/* Logo */}
         <Link to="/" className="flex-shrink-0">
           <img src={aisLogo} alt="AIS Logo" className="h-16 md:h-20 w-auto" />
         </Link>
 
-        {/* Desktop Nav - pill shaped like ghaia.ai */}
+        {/* Desktop Nav */}
         <div className="hidden lg:flex items-center">
           <div className="flex items-center gap-1 px-2 py-1.5 rounded-full border border-border/50 bg-muted/30 backdrop-blur-sm">
             {navItems.map((item) => (
@@ -100,7 +101,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Right side - CTA only, no lang */}
+        {/* CTA */}
         <div className="hidden lg:flex items-center">
           <Link to="/contact">
             <Button variant="gradient" size="default" className="rounded-full">
@@ -109,8 +110,11 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile menu toggle */}
-        <button className="lg:hidden p-2 text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+        {/* Mobile toggle */}
+        <button
+          className="lg:hidden p-2 text-foreground"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>

@@ -12,8 +12,6 @@ const HeroSection = () => {
         className="absolute inset-0"
         style={{ backgroundImage: `url(${bannerImage})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
       />
-      {/* Dark overlay so text stays readable */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0d0d2b]/85 via-[#13103a]/80 to-[#1a0a3a]/75" />
 
       {/* Gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-violet/10 blur-[120px] animate-pulse-glow" />
