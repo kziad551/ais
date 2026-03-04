@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -27,34 +27,27 @@ const Navbar = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
       <div className="container-wide mx-auto flex items-center justify-between h-20 md:h-24 px-4 sm:px-6 lg:px-8">
-        {/* Logo - bigger */}
+        {/* Logo */}
         <Link to="/" className="flex-shrink-0">
-          <img src={aisLogo} alt="AIS Logo" className="h-12 md:h-14 w-auto" />
+          <img src={aisLogo} alt="AIS Logo" className="h-16 md:h-20 w-auto" />
         </Link>
 
         {/* Desktop Nav - pill shaped like ghaia.ai */}
         <div className="hidden lg:flex items-center">
           <div className="flex items-center gap-1 px-2 py-1.5 rounded-full border border-border/50 bg-muted/30 backdrop-blur-sm">
             {navItems.map((item) => (
-              <div key={item.path} className="relative" ref={item.submenu ? dropdownRef : undefined}>
+              <div
+                key={item.path}
+                className="relative"
+                onMouseEnter={() => item.submenu && setServicesOpen(true)}
+                onMouseLeave={() => item.submenu && setServicesOpen(false)}
+              >
                 {item.submenu ? (
                   <button
-                    onClick={() => setServicesOpen(!servicesOpen)}
                     className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                       location.pathname === item.path
                         ? "text-violet bg-background shadow-sm"

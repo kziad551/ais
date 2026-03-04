@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin } from "lucide-react";
-import aisLogo from "@/assets/ais-logo.webp";
+import { Mail, Phone, MapPin, Facebook, Linkedin } from "lucide-react";
+
+const FOOTER_LOGO = "https://uaeais.com/dev/wp-content/uploads/2024/09/black-white-1771402516236-removebg-preview.webp";
 
 const Footer = () => {
   return (
@@ -9,11 +10,32 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <img src={aisLogo} alt="AIS Logo" className="h-10 mb-4 brightness-200" />
-            <p className="text-primary-foreground/70 text-sm leading-relaxed">
+            <img src={FOOTER_LOGO} alt="AIS Logo" className="h-16 mb-4 w-auto" />
+            <p className="text-primary-foreground/70 text-sm leading-relaxed mb-5">
               AIS works with organizations seeking structured, secure, and governed AI implementation.
               Share your objectives or current challenges, and our team will assess feasibility, impact, and alignment before proposing a clear roadmap.
             </p>
+            {/* Social Media */}
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex items-center justify-center w-9 h-9 rounded-full border border-primary-foreground/20 text-primary-foreground/60 hover:text-primary-foreground hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all"
+              >
+                <Facebook size={16} />
+              </a>
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="flex items-center justify-center w-9 h-9 rounded-full border border-primary-foreground/20 text-primary-foreground/60 hover:text-primary-foreground hover:border-primary-foreground/60 hover:bg-primary-foreground/10 transition-all"
+              >
+                <Linkedin size={16} />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
