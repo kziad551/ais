@@ -60,7 +60,19 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-display font-semibold text-foreground mb-3 flex items-center gap-2"><MapPin size={18} className="text-violet" /> Our Presence</h3>
-                <p className="text-sm text-muted-foreground">Lebanon – United Arab Emirates</p>
+                <p className="text-sm text-muted-foreground mb-3">Lebanon – United Arab Emirates</p>
+                <div className="rounded-xl overflow-hidden border border-border shadow-sm">
+                  <iframe
+                    title="AIS Location – Azarieh Center, Downtown Beirut"
+                    src="https://maps.google.com/maps?ll=33.871473,35.5038&z=12&t=m&hl=en&gl=LB&mapclient=embed&q=Azarieh+Center+Down+Town+-+Lebanon&output=embed"
+                    width="100%"
+                    height="220"
+                    style={{ border: 0, display: "block" }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
               <div className="glass-card p-6 text-center">
                 <CalendarDays size={32} className="text-violet mx-auto mb-3" />

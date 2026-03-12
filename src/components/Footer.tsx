@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Facebook, Linkedin } from "lucide-react";
-
-const FOOTER_LOGO = "https://uaeais.com/dev/wp-content/uploads/2024/09/black-white-1771402516236-removebg-preview.webp";
+import footerLogo from "@/assets/black-white.webp";
 
 const Footer = () => {
   return (
@@ -10,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <img src={FOOTER_LOGO} alt="AIS Logo" className="h-16 mb-4 w-auto" />
+            <img src={footerLogo} alt="AIS Logo" className="h-16 mb-4 w-auto" />
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-5">
               AIS works with organizations seeking structured, secure, and governed AI implementation.
               Share your objectives or current challenges, and our team will assess feasibility, impact, and alignment before proposing a clear roadmap.
