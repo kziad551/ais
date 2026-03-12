@@ -47,6 +47,7 @@ const Footer = () => {
                 { label: "About Us", path: "/about" },
                 { label: "Services", path: "/services" },
                 { label: "Our Approach", path: "/our-approach" },
+                { label: "Join Us", path: "/join-us" },
                 { label: "Contact Us", path: "/contact" },
               ].map((item) => (
                 <Link key={item.path} to={item.path} className="block text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
@@ -73,6 +74,9 @@ const Footer = () => {
               <a href="tel:+96181400324" className="text-sm text-primary-foreground hover:underline flex items-center gap-2">
                 <Phone size={14} /> +961 81 400 324
               </a>
+              <a href="tel:+971000000000" className="text-sm text-primary-foreground hover:underline flex items-center gap-2">
+                <Phone size={14} /> UAE: +971 XX XXX XXXX
+              </a>
             </div>
           </div>
 
@@ -90,8 +94,17 @@ const Footer = () => {
         <div className="gradient-line opacity-30 mb-6" />
 
         {/* Copyright */}
-        <div className="text-center text-sm text-primary-foreground/40">
-          ©️ 2025 AIS. All rights reserved.
+        <div className="text-center text-sm text-primary-foreground/40 space-y-1">
+          <p>Copyright © 2025–2026 AIS. All Rights Reserved.</p>
+          <p className="flex flex-wrap justify-center gap-x-3 gap-y-1">
+            <span className="hover:text-primary-foreground/70 cursor-pointer transition-colors">Privacy Policy</span>
+            <span className="text-primary-foreground/20">|</span>
+            <span className="hover:text-primary-foreground/70 cursor-pointer transition-colors">Terms of Use</span>
+            <span className="text-primary-foreground/20">|</span>
+            <span className="hover:text-primary-foreground/70 cursor-pointer transition-colors">Responsible AI</span>
+            <span className="text-primary-foreground/20">|</span>
+            <span className="hover:text-primary-foreground/70 cursor-pointer transition-colors">AI Ethics</span>
+          </p>
         </div>
       </div>
     </footer>

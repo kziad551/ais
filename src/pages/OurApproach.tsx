@@ -47,7 +47,7 @@ const OurApproach = () => {
         </div>
         <div className="relative container-narrow mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="text-sm font-semibold uppercase tracking-widest text-violet/80 mb-3">Understanding Structured AI Deployment</p>
+            <p className="text-base font-semibold uppercase tracking-widest text-violet/80 mb-3">Understanding Structured AI Deployment</p>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
               How AIS Designs and Deploys Structured AI
             </h1>
@@ -71,7 +71,7 @@ const OurApproach = () => {
               Build the Future of Structured AI
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              AIS collaborates with engineers, researchers, and professionals who believe AI should be governed, human-centered, and operationally deployable.
+              AIS collaborates with engineers, researchers, and professionals who believe AI should be governed, human-centered, and operationally deployable through structured engineering and delivery.
             </p>
           </motion.div>
         </div>

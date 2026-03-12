@@ -5,12 +5,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingCTA from "@/components/FloatingCTA";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import OurApproach from "./pages/OurApproach";
 import Contact from "./pages/Contact";
+import JoinUs from "./pages/JoinUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,7 +22,6 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Navbar />
-        <FloatingCTA />
         <main className="min-h-screen">
           <Routes>
             <Route path="/" element={<Index />} />
@@ -30,6 +29,7 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/our-approach" element={<OurApproach />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/join-us" element={<JoinUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

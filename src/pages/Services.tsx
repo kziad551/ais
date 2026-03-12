@@ -116,7 +116,7 @@ const Services = () => {
 
         <div className="relative container-narrow mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet/30 bg-violet/10 text-violet text-xs font-semibold uppercase tracking-widest mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet/30 bg-violet/10 text-violet text-sm font-semibold uppercase tracking-widest mb-6">
               What We Offer
             </span>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">

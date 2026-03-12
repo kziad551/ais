@@ -12,7 +12,7 @@ const About = () => {
         </div>
         <div className="relative container-narrow mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-violet/80 mb-3">About Us</p>
+            <p className="text-base font-semibold uppercase tracking-widest text-violet/80 mb-3">About Us</p>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
               Who We Are
             </h1>
@@ -29,8 +29,9 @@ const About = () => {
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-6">About AIS</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>AIS — Agentic Artificial Intelligence Developing Services — is an enterprise AI company that designs, builds, and deploys practical AI solutions for real business environments.</p>
-                <p>We specialize in agentic AI systems, intelligent automation, custom AI software, and strategic consulting — helping organizations move from exploration to measurable AI outcomes.</p>
-                <p>Our approach is grounded in human oversight, responsible governance, and structured delivery. We believe AI should augment people, not replace them — enabling teams to lead with better intelligence, clearer decisions, and more efficient operations.</p>
+                <p>We specialize in agentic AI systems, intelligent automation, custom AI software, and strategic consulting helping organizations move from exploration to measurable AI outcomes.</p>
+                <p>Our approach is grounded in human oversight, responsible governance, and structured engineering and delivery. We believe AI should augment people, not replace them enabling teams to lead with better intelligence, clearer decisions, and more efficient operations.</p>
+                <p>Our systems are designed with transparency, accountability, and human-in-the-loop controls to ensure AI remains explainable, secure, and aligned with organizational policies and regulatory expectations.</p>
                 <p>AIS works across industries including finance, healthcare, government, logistics, education, and professional services. Every engagement starts with understanding your organization's real challenges and ends with deployed, governed, and measurable solutions.</p>
               </div>
             </motion.div>
@@ -38,9 +39,11 @@ const About = () => {
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-6">Our Identity & Logo Meaning</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>The AIS identity is built on modular squares — each block represents a system, a decision unit, a workflow, or a sector. These blocks connect to form structured agentic ecosystems.</p>
+                <p>The AIS identity is built on modular squares; each block represents a system, a decision unit, a workflow, or a sector. These blocks connect to form structured agentic ecosystems.</p>
                 <p>Humans supervise and guide. AI executes within boundaries. AIS connects these blocks into cohesive, governed systems that deliver real outcomes.</p>
-                <p>Our visual language reflects this philosophy: clean geometry, structured layouts, and purposeful connections — never chaotic, always intentional.</p>
+                <p>Our visual language reflects this philosophy: clean geometry, structured layouts, and purposeful connections; never chaotic, always intentional.</p>
+                <p>This structure represents how AIS builds AI systems that are reliable, transparent, and designed to operate with clear oversight and accountability.</p>
+                <p>AIS is built on the belief that powerful AI must be structured, governed, and always guided by human judgment.</p>
               </div>
               <div className="mt-8 grid grid-cols-4 gap-2">
                 {[...Array(12)].map((_, i) => (

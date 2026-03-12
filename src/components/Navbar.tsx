@@ -19,6 +19,7 @@ const navItems = [
   { label: "About Us", path: "/about" },
   { label: "Services", path: "/services", submenu: services },
   { label: "Our Approach", path: "/our-approach" },
+  { label: "Join Us", path: "/join-us" },
   { label: "Contact Us", path: "/contact" },
 ];
 

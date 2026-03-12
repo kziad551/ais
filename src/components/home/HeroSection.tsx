@@ -57,7 +57,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg sm:text-xl text-primary-foreground/60 leading-relaxed mb-10 max-w-2xl">
-              AIS builds practical AI solutions for real business environments — from smart software and intelligent automation to advanced AI agents — backed by consulting and training.
+              AIS builds practical AI solutions for real business environments, from smart software and intelligent automation to advanced AI agents, backed by consulting and training.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -69,7 +69,7 @@ const HeroSection = () => {
               </Link>
               <Link to="/contact">
                 <Button variant="hero-outline" size="lg">
-                  Talk to AIS
+                  Connect with AIS or Speak with Our Experts
                 </Button>
               </Link>
             </div>
