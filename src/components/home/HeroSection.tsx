@@ -3,15 +3,24 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import bannerImage from "@/assets/home-banner.jpeg";
+import bannerMp4 from "@/assets/banner-bg.mp4";
+import bannerWebm from "@/assets/banner-bg.webm";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Banner background image */}
-      <div
-        className="absolute inset-0"
-        style={{ backgroundImage: `url(${bannerImage})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
-      />
+      {/* Animated video background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster={bannerImage}
+      >
+        <source src={bannerWebm} type="video/webm" />
+        <source src={bannerMp4} type="video/mp4" />
+      </video>
 
       {/* Gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-violet/10 blur-[120px] animate-pulse-glow" />

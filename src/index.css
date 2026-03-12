@@ -43,11 +43,11 @@
     --light-gray: 230 15% 94%;
     --dark-navy: 230 50% 10%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(280 42% 40%), hsl(255 45% 35%), hsl(230 50% 31%));
+    --gradient-primary: #7D3A96;
     --gradient-hero: linear-gradient(160deg, hsl(230 50% 8%), hsl(255 45% 15%), hsl(230 50% 12%));
-    --gradient-section: linear-gradient(180deg, hsl(230 50% 31% / 0.03), hsl(280 42% 40% / 0.05));
+    --gradient-section: linear-gradient(180deg, hsl(230 50% 31% / 0.03), rgba(125, 58, 150, 0.05));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(230 20% 98%));
-    --gradient-violet-line: linear-gradient(90deg, hsl(280 42% 40%), hsl(230 50% 31%));
+    --gradient-violet-line: linear-gradient(90deg, #7D3A96, #7D3A96);
 
     --shadow-sm: 0 2px 8px hsl(230 50% 31% / 0.06);
     --shadow-md: 0 4px 20px hsl(230 50% 31% / 0.08);
@@ -140,10 +140,11 @@
   .btn-gradient {
     background: var(--gradient-primary);
     @apply text-white font-medium rounded-full px-6 py-3 transition-all duration-300;
-    box-shadow: 0 4px 15px hsl(280 42% 40% / 0.3);
+    box-shadow: 0 4px 15px rgba(125, 58, 150, 0.35);
   }
   .btn-gradient:hover {
-    box-shadow: 0 6px 25px hsl(280 42% 40% / 0.4);
+    background: #6b3180;
+    box-shadow: 0 6px 25px rgba(125, 58, 150, 0.5);
     transform: translateY(-1px);
   }
   .btn-outline-glow {
