@@ -59,7 +59,7 @@ const HeroSection = () => {
 
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-[1.1] mb-6">
               Practical Agentic AI for{" "}
-              <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, hsl(280 70% 70%), hsl(230 70% 70%))" }}>
+              <span style={{ color: "#7D3A96" }}>
                 Real Business
               </span>{" "}
               Environments
