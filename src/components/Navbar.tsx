@@ -29,6 +29,13 @@ const Navbar = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
 
+  const handleNavClick = (path: string) => (e: React.MouseEvent) => {
+    if (location.pathname === path) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
       <div className="container-wide mx-auto flex items-center justify-between h-20 md:h-24 px-4 sm:px-6 lg:px-8">
@@ -60,7 +67,7 @@ const Navbar = () => {
                     <ChevronDown size={14} className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
                   </button>
                 ) : (
-                  <Link to={item.path}>
+                  <Link to={item.path} onClick={handleNavClick(item.path)}>
                     <button
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                         location.pathname === item.path
@@ -166,7 +173,7 @@ const Navbar = () => {
                       </AnimatePresence>
                     </>
                   ) : (
-                    <Link to={item.path} onClick={() => setMobileOpen(false)}>
+                    <Link to={item.path} onClick={(e) => { handleNavClick(item.path)(e); setMobileOpen(false); }}>
                       <div className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                         location.pathname === item.path ? "bg-muted text-violet" : "text-foreground/70 hover:bg-muted"
                       }`}>

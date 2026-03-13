@@ -1,8 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Mail, Phone, MapPin, Facebook, Linkedin } from "lucide-react";
 import footerLogo from "@/assets/black-white.webp";
 
 const Footer = () => {
+  const location = useLocation();
+
+  const handleNavClick = (path: string) => (e: React.MouseEvent) => {
+    if (location.pathname === path) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="gradient-hero-bg text-primary-foreground">
       <div className="container-wide mx-auto section-padding pb-10">
@@ -49,7 +58,12 @@ const Footer = () => {
                 { label: "Join Us", path: "/join-us" },
                 { label: "Contact Us", path: "/contact" },
               ].map((item) => (
-                <Link key={item.path} to={item.path} className="block text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={handleNavClick(item.path)}
+                  className="block text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                >
                   {item.label}
                 </Link>
               ))}
