@@ -1,10 +1,65 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { Users, Sparkles } from "lucide-react";
+import { toast } from "sonner";
+
+const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_JOIN_US_ID || "";
+const MAX_CV_SIZE_MB = 5;
+const ACCEPTED_CV_TYPES = ".pdf,.doc,.docx";
 
 const JoinUs = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [message, setMessage] = useState("");
+  const [cvFile, setCvFile] = useState<File | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!FORMSPREE_ID) {
+      toast.error("Form is not configured for email delivery. Please set VITE_FORMSPREE_JOIN_US_ID.");
+      return;
+    }
+    if (!cvFile) {
+      toast.error("Please upload your CV.");
+      return;
+    }
+    if (cvFile.size > MAX_CV_SIZE_MB * 1024 * 1024) {
+      toast.error(`CV must be under ${MAX_CV_SIZE_MB} MB.`);
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const formData = new FormData();
+      formData.append("Full Name", fullName);
+      formData.append("Email", email);
+      formData.append("Role / Area of Interest", role);
+      formData.append("Message", message);
+      formData.append("CV", cvFile);
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error("Send failed");
+      toast.success("Interest submitted. We'll be in touch by email.");
+      setFullName("");
+      setEmail("");
+      setRole("");
+      setMessage("");
+      setCvFile(null);
+    } catch {
+      toast.error("Something went wrong. Please try again or email us at info@uaeais.com.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <>
       {/* Hero */}
@@ -40,13 +95,55 @@ const JoinUs = () => {
             {/* Interest Form */}
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
               <h2 className="font-display text-2xl font-bold text-foreground mb-4">Submit Your Interest</h2>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <Input placeholder="Full Name" className="bg-card" />
-                <Input type="email" placeholder="Email Address" className="bg-card" />
-                <Input placeholder="Role / Area of Interest" className="bg-card" />
-                <Textarea placeholder="Tell us about yourself and what drives you..." rows={4} className="bg-card" />
-                <Button variant="gradient" size="lg" className="w-full rounded-full">
-                  Submit Interest
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <Input
+                  placeholder="Full Name"
+                  className="bg-card"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  required
+                />
+                <Input
+                  type="email"
+                  placeholder="Email Address"
+                  className="bg-card"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <Input
+                  placeholder="Role / Area of Interest"
+                  className="bg-card"
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+                <Textarea
+                  placeholder="Tell us about yourself and what drives you..."
+                  rows={4}
+                  className="bg-card"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+                <div className="space-y-2">
+                  <Label className="text-foreground">Upload your CV</Label>
+                  <div className="flex items-center gap-2">
+                    <Input
+                      key={cvFile ? cvFile.name : "no-file"}
+                      type="file"
+                      accept={ACCEPTED_CV_TYPES}
+                      className="bg-card cursor-pointer file:cursor-pointer"
+                      onChange={(e) => setCvFile(e.target.files?.[0] ?? null)}
+                    />
+                    {cvFile && (
+                      <span className="text-sm text-muted-foreground truncate max-w-[140px]" title={cvFile.name}>
+                        {cvFile.name}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs text-muted-foreground">PDF or Word, max {MAX_CV_SIZE_MB} MB</p>
+                </div>
+                <Button variant="gradient" size="lg" className="w-full rounded-full" type="submit" disabled={submitting}>
+                  {submitting ? "Sending…" : "Submit Interest"}
                 </Button>
               </form>
             </motion.div>
